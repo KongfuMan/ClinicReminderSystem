@@ -1,0 +1,11 @@
+.fill-remaining-space{
+  flex: 1 1 auto;
+}
+
+.logo-text{
+  color:white;
+}
+
+.logo-text:hover{
+  text-decoration: none;
+}

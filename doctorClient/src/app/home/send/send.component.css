@@ -1,0 +1,13 @@
+.send-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+}
+
+.send-container > * {
+  width: 60%;
+}
+
+button.submit{
+  margin-left: 40%;
+}

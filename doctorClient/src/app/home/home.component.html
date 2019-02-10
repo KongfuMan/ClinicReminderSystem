@@ -1,0 +1,33 @@
+<div class="container">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <mat-card class="border border-primary">
+        <mat-card-header>
+          <nav mat-tab-nav-bar>
+              <a class="mx-5" mat-tab-link routerLink='/home/send' routerLinkActive='active'>Create Reminder
+                <mat-icon class="example-tab-icon">create</mat-icon>
+              </a>
+              <a class="mx-5" mat-tab-link routerLink='/home/list' routerLinkActive='active'>Reminder List
+                <mat-icon class="example-tab-icon">format_list_bulleted</mat-icon>
+              </a>
+              <a class="mx-5" mat-tab-link routerLink='/home/history' routerLinkActive='active'>History Reminders
+                <mat-icon class="example-tab-icon">history</mat-icon>
+              </a>
+          </nav>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+            <router-outlet></router-outlet>
+        </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <app-footer></app-footer>
+  </div>
+</div>
+
+
+
+

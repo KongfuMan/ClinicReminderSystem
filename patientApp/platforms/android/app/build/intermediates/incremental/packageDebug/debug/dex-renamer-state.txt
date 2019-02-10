@@ -1,0 +1,4 @@
+#Fri Dec 28 10:13:23 CST 2018
+base.0=/Users/chenliang/Documents/GitHub/ClinicReminderSystem/patientApp/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

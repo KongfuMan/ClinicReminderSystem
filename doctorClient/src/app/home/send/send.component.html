@@ -1,0 +1,33 @@
+<form #sendAReminderForm="ngForm" (ngSubmit)="OnSubmit()">
+  <div class="send-container">
+    <mat-form-field hideRequiredMarker>
+      <input matInput placeholder="Input Description" required name="Description"
+             #Description="ngModel" [(ngModel)]="reminder.description">
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker>
+      <input matInput placeholder="Input Duration(Hours)" required name="Duration" #Duration="ngModel" [(ngModel)]="reminder.duration">
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker>
+      <mat-select placeholder="Select a patient"  name="Patients" #Patients="ngModel" [(ngModel)] = "reminder.patientName">
+        <mat-option *ngFor="let p of patients" [value] = "p">
+          {{p}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker>
+      <mat-select placeholder="Set Priority" name="Priority" #Priority="ngModel" [(ngModel)] = "reminder.priority">
+        <mat-option *ngFor="let p of priorities" [value] = "p.value">
+          {{p.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <button class="submit" mat-flat-button [disabled]="!sendAReminderForm.valid" type="submit">Submit
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</form>

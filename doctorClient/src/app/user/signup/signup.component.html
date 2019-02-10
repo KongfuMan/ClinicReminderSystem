@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content white-text">
+        <span class="card-title black-text">Sign up</span>
+        <form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+
+          <div class="form-group">
+            <label data-error="Required field!" class="left black-text">Username</label>
+            <input type="text" required #name="ngModel" class="validate"  name="UserName" #UserName="ngModel" [(ngModel)]="user.username" >
+          </div>
+
+          <div class="form-group">
+            <label data-error="Required field!" class="left black-text">Password</label>
+            <input type="password" required class="validate" minlength="3" name="Password" #Password="ngModel" [(ngModel)]="user.password">
+          </div>
+
+          <div class="form-group">
+            <label  class="left black-text">Reenter your password</label>
+            <input type="password" required class="validate" minlength="3" name="Password" #Password="ngModel" [(ngModel)]="user.password">
+          </div>
+
+          <div class="form-group">
+            <label  class="left black-text">Email</label>
+            <input type="email" required class="validate" name="email" #email="ngModel" [(ngModel)]="user.password">
+          </div>
+
+          <button [disabled]="!userRegistrationForm.valid" class="btn btn-primary" type="submit" name="action">Submit</button>
+        </form>
+      </div>
+      <div class="card-action">
+        <a routerLink="/signin">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>

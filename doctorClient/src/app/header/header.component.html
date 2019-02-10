@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+   <span>
+     <a routerLink="/" routerLinkActive='active' class="logo-text">Clinic Reminder System</a>
+   </span>
+   <span class="fill-remaining-space"></span>
+   <span>
+      <button mat-button *ngIf="username.length===0">
+        <a routerLink="/signin">Signin</a>
+      </button>
+      <button mat-button *ngIf="username.length!==0" (click)="onSignout()">
+        Signout
+      </button>
+   </span>
+  <span>
+    <button mat-button>My Profile</button>
+  </span>
+</mat-toolbar>

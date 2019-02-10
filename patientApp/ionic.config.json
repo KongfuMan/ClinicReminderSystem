@@ -1,0 +1,17 @@
+{
+  "name": "patientApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/user",
+      "proxyUrl": "http://localhost:8080/user"
+    },
+    {
+      "path": "/patient",
+      "proxyUrl": "http://localhost:8080/patient"
+    }
+  ]
+}

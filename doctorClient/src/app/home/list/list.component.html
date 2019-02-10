@@ -1,0 +1,15 @@
+<div *ngFor="let reminder of reminders">
+  <mat-card [ngClass]="onSelectClass(reminder)" >
+    <mat-card-content>
+      <p class="center">Description:{{reminder.description}}</p>
+      <p class="center">Create at:{{reminder.create_at | date:"HH/MM/dd/yy"}}</p>
+      <p class="center">Priority:{{reminder.priority}}</p>
+      <p class="center">Duration:{{reminder.duration | date: "HH"}}</p>
+      <p class="center">Done:{{reminder.done}}</p>
+    </mat-card-content>
+    <mat-card-actions class="detail">
+      <a [routerLink]="['/home/list',reminder.reminderId]" class="mat-raised-button">Details</a>
+    </mat-card-actions>
+  </mat-card>
+  <br>
+</div>

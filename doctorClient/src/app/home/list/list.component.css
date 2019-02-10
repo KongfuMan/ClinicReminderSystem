@@ -1,0 +1,21 @@
+.card-done{
+  max-width: 80%;
+  color: white;
+  background-color: #4caf50;
+  align-content:center;
+}
+
+.card-undone{
+  max-width: 80%;
+  color: white;
+  background-color: #e57373;
+  align-content:center;
+}
+
+mat-card{
+  margin-left: 5.6%;
+}
+
+mat-card-actions.detail{
+  margin-left: 50%;
+}
