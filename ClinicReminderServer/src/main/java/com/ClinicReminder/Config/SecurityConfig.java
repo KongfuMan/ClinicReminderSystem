@@ -3,7 +3,6 @@ package com.ClinicReminder.Config;
 import com.ClinicReminder.Security.JWTAuthenticationFilter;
 import com.ClinicReminder.Services.JWTProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
@@ -12,11 +11,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.ClinicReminder.Security.SecurityConstants.*;
+import static com.ClinicReminder.Security.SecurityConstants.PUBLIC_URL;
 
 
 //configure both security filters on the Spring Security filter chain
@@ -30,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private JWTProvider tokenProvider;
 
     @Autowired
-    private PasswordEncoder passwordEncoder(){
+    private PasswordEncoder passwordEncoder() {
         return SecurityUtility.passwordEncoder();
     }
 
@@ -42,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         JWTAuthenticationFilter customFilter = new JWTAuthenticationFilter();
-        http.addFilterBefore(customFilter,UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
 
         http.cors()
                 .and().csrf().disable()
@@ -50,8 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .antMatchers("/admin/**").hasAuthority("ADMIN")
 //                    .antMatchers("/doctor/**").hasAuthority("DOCTOR")
 //                    .antMatchers("/patient/**").hasAuthority("PATIENT")
-                    .antMatchers(PUBLIC_URL).permitAll()  //permit the login page to All HttpMethod.POST, LOG_IN_URL,SIGN_UP_URL,TEST_WEBSOCKET
-                    .anyRequest().permitAll();
+                .antMatchers(PUBLIC_URL).permitAll()  //permit the login page to All HttpMethod.POST, LOG_IN_URL,SIGN_UP_URL,TEST_WEBSOCKET
+                .anyRequest().permitAll();
 
     }
 

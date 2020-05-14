@@ -24,6 +24,6 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
         // our clients will use this endpoint to connect to the server
         registry.addEndpoint("/connect")   //where server is waiting for connectoins from clients
                 .setAllowedOrigins("*"); //Also we allow server to receive requests from any origin
-                //.withSockJS(); // not use “clean” websockets, but with SockJS
+        //.withSockJS(); // not use “clean” websockets, but with SockJS
     }
 }

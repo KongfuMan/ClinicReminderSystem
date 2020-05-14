@@ -5,19 +5,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "Reminder")
-public class Reminder{
+public class Reminder {
 
     @Id
     @GeneratedValue(
-            strategy= GenerationType.AUTO,
-            generator="native"
+            strategy = GenerationType.AUTO,
+            generator = "native"
     )
     @GenericGenerator(
             name = "native",
@@ -27,10 +24,11 @@ public class Reminder{
     private int reminderId;
     private String description;
 
-    @Column(name = "create_at")
     private long create_at;
     private long duration;
     private int priority;
+
+    @Column(name="is_done")
     private boolean isDone = false;
 
     public Reminder() {
@@ -59,7 +57,7 @@ public class Reminder{
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="patient_id")
+    @JoinColumn(name = "patient_id")
     private Patient patient;   //the users include a doctors that sent it
 
     @JsonIgnore
@@ -170,14 +168,14 @@ public class Reminder{
     public static Comparator<Reminder> timeComparator = new Comparator<Reminder>() {
         @Override
         public int compare(Reminder o1, Reminder o2) {
-            return (int)(o2.getCreate_at() - o1.getCreate_at());    //lastest Reminder at front
+            return (int) (o2.getCreate_at() - o1.getCreate_at());    //lastest Reminder at front
         }
     };
 
     public static Comparator<Reminder> priorityComparator = new Comparator<Reminder>() {
         @Override
         public int compare(Reminder o1, Reminder o2) {
-            return (int)(o1.getCreate_at() - o2.getCreate_at());    //hight prioirity at front
+            return (int) (o1.getCreate_at() - o2.getCreate_at());    //hight prioirity at front
         }
     };
 }
